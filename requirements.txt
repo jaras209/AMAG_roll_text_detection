@@ -1,0 +1,5 @@
+craft-text-detector
+torchvision==0.13
+torch
+transformers
+Pillow
