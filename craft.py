@@ -1,5 +1,6 @@
 from pathlib import Path
 from tqdm import tqdm
+from PIL import Image
 
 # import craft functions
 from craft_text_detector import (
@@ -58,6 +59,8 @@ for image_path in tqdm(directory_iter, total=len(directory_iter)):
         heatmaps=prediction_result["heatmaps"],
         output_dir=str(output_dir / image_path.name)
     )
+
+    image = Image.open(image_path).convert("RGB")
 
 # unload models from gpu
 empty_cuda_cache()
